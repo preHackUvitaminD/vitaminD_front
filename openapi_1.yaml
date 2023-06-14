@@ -1,0 +1,137 @@
+openapi: "3.0.3"
+
+info:
+  title: "vitaminD backend api"
+  description: "バックエンドのAPIの仕様書です"
+  version: "1.0.0"
+
+servers:
+  - url: "http://localhost:3000"
+    description: "ローカル環境"
+  - url: "https://5jw1mw8qy8.execute-api.ap-northeast-1.amazonaws.com/Prod"
+    description: "本番環境"
+
+tags:
+  - name: "users"
+    description: "ユーザー"
+  - name: "ranking"
+    description: "ランキング"
+
+paths:
+  "/register":
+    post:
+      summary: "ユーザ名とグループ名の登録"
+      tags: ["users"]
+      deprecated: false
+      requestBody:
+        description: "ユーザー名とグループ名"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userName: { type: string, example: "MK8-31" }
+                groupName: { type: string, example: "vitaminD" }
+      responses:
+        "201":
+          description: "成功"
+        "401":
+          description: "失敗"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "user not found in GitHub"
+                    
+  "/delete":
+    post:
+      summary: "ユーザ名とグループ名の削除"
+      tags: ["users"]
+      deprecated: false
+      requestBody:
+        description: "ユーザー名とグループ名"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userName: { type: string, example: "MK8-31" }
+                groupName: { type: string, example: "vitaminD" }
+      responses:
+        "201":
+          description: "成功"
+        "401":
+          description: "失敗"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "userName/groupName pair not found"
+            
+  "/ranking/{groupName}":
+    get:
+      summary: "グループのランキングを返す"
+      tags: ["ranking"]
+      deprecated: false
+      parameters:
+        - name: groupName
+          in: path
+          required: true
+          schema: 
+            type: string
+          example: "vitaminD"
+      responses:
+        "201":
+          description: "成功"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ranking:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        userName:
+                          type: string
+                          description: "ユーザー名"
+                        rank:
+                          type: integer
+                          description: "ユーザーの順位"
+                        exp:
+                          type: integer
+                          description: "ユーザーの経験値"
+                        lv:
+                          type: integer
+                          description: "ユーザーのレベル"
+              example:
+                ranking:
+                  - userName: yuki-shimojo269
+                    rank: 1
+                    exp: 10
+                    lv: 1
+                  - userName: MK8-31
+                    rank: 2
+                    exp: 0
+                    lv: 0
+                        
+        "401":
+          description: "失敗"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "groupName not found"
+          
