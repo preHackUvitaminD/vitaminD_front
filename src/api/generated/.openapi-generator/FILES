@@ -1,0 +1,13 @@
+.openapi-generator-ignore
+apis/RankingApi.ts
+apis/UsersApi.ts
+apis/index.ts
+index.ts
+models/DeletePost401Response.ts
+models/RankingGroupNameGet201Response.ts
+models/RankingGroupNameGet201ResponseRankingInner.ts
+models/RankingGroupNameGet401Response.ts
+models/RegisterPost401Response.ts
+models/RegisterPostRequest.ts
+models/index.ts
+runtime.ts
