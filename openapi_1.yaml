@@ -47,18 +47,21 @@ paths:
                     type: string
                     example: "user not found in GitHub"
                     
-  "/delete/{userName}":
-    delete:
+  "/delete":
+    post:
       summary: "ユーザ名とグループ名の削除"
       tags: ["users"]
       deprecated: false
-      parameters:
-        - name: "userName"
-          in: "path"
-          description: "ユーザー名"
-          required: true
-          schema: 
-            type: string
+      requestBody:
+        description: "ユーザー名とグループ名"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userName: { type: string, example: "MK8-31" }
+                groupName: { type: string, example: "vitaminD" }
       responses:
         "201":
           description: "成功"
@@ -71,7 +74,7 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: "userName not found"
+                    example: "userName/groupName pair not found"
             
   "/ranking/{groupName}":
     get:
