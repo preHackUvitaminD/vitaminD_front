@@ -1,6 +1,69 @@
+'use client'
 import Image from 'next/image'
+import './firebaseApp'
+
+import { useEffect, useState } from 'react'
+import {
+  getAuth,
+  Auth,
+  GithubAuthProvider,
+  signInWithPopup,
+} from 'firebase/auth'
+
+const OWNER = '<OWNER>'
+const REPO = '<REPO>'
 
 export default function Home() {
+  const [token, setToken] = useState<string | null>(null)
+  const [auth, setAuth] = useState<Auth | null>(null)
+  const [provider, setProvider] = useState<GithubAuthProvider | null>(null)
+
+  // GitHub OAuth Provider ObjectのInstanceを作成
+  useEffect(() => {
+    if (provider === null) {
+      const newProvider = new GithubAuthProvider()
+      newProvider.addScope('repo') // 既定ではユーザー自身のemailを取得するスコープしか付与されない。必要に応じてスコープを追加する
+      setProvider(newProvider)
+    }
+  }, [provider])
+
+  // Firebase Appに対するAuth instanceを取得
+  useEffect(() => {
+    if (provider !== null && auth === null) {
+      setAuth(getAuth())
+      console.log(auth)
+    }
+  }, [auth, provider])
+
+  // ポップアップによるサインインを実施し、成功したらアクセストークンを取得する
+  useEffect(() => {
+    if (provider !== null && auth !== null && token === null) {
+      signInWithPopup(auth, provider).then((result) => {
+        const credential = GithubAuthProvider.credentialFromResult(result)
+        if (credential && credential.accessToken) {
+          setToken(credential.accessToken)
+          console.log('token: ' + credential.accessToken)
+        }
+        console.log(result.user)
+      })
+    }
+  }, [auth, provider, token])
+
+  // アクセストークンを使用してGitHub API（GET /Issues）へリクエストする
+  useEffect(() => {
+    if (token !== null) {
+      fetch(`https://api.github.com/repos/${OWNER}/${REPO}/issues`, {
+        headers: {
+          Authorization: `token ${token}`,
+          Accept: 'application / vnd.github.v3 + json',
+        },
+      }).then((result) => {
+        result.json().then((result) => {
+          console.log(result)
+        })
+      })
+    }
+  }, [token])
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
