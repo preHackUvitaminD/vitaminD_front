@@ -8,7 +8,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "start:mock-server": "prism mock openapi_1.yaml -p 3001"
+    "start:mock-server": "prism mock openapi_1.yaml -p 3001",
+    "prepare": "run-s codegen",
+    "gen:openapi": "openapi-generator-cli generate -g typescript-fetch -i openapi_1.yaml -o src/api/generated",
+    "clean:openapi": "rimraf src/api/generated",
+    "codegen": "run-s clean:openapi gen:openapi"
   },
   "dependencies": {
     "@types/node": "20.2.6",
@@ -29,6 +33,8 @@
   },
   "devDependencies": {
     "@stoplight/prism-cli": "^5.0.1",
-    "npm-run-all": "^4.1.5"
+    "npm-run-all": "^4.1.5",
+    "@openapitools/openapi-generator-cli": "^2.6.0",
+    "rimraf": "^5.0.1"
   }
 }
