@@ -16,8 +16,8 @@ export const RankingList: React.FC<RankingListProps> = ({
           <li key={user.userName}>
             <div>
               <span>{user.rank}位</span>
-              <span>{user.userName}</span>
               <span>レベル{user.lv}</span>
+              <span>{user.userName}</span>
             </div>
           </li>
         ))}
