@@ -11,6 +11,7 @@ export const RankingList: React.FC<RankingListProps> = ({
 
   return (
     <>
+      <div>{groupName}</div>
       <ul>
         {data?.ranking?.map((user) => (
           <li key={user.userName}>
