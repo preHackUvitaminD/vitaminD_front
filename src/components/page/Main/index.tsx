@@ -33,6 +33,9 @@ export const Main: React.FC = () => {
       <div className="flex justify-center mt-4">UserName:WMs784</div>
       <div className="flex justify-center items-center mt-5">
         <Image src="/chara_ex.gif" width={240} height={240} alt="Avatar" />
+      </div>
+      <div className="flex justify-center mt-5">Lv.1</div>
+
       <div>
         {token ? (
           <span></span>
@@ -43,7 +46,6 @@ export const Main: React.FC = () => {
         )}
         <Link href="/ranking">Ranking</Link>
       </div>
-      <div className="flex justify-center mt-5">Lv.1</div>
     </>
   )
 }
