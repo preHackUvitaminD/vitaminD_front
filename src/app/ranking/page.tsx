@@ -10,7 +10,7 @@ const Page: React.FC = () => {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <Link href="/">Main</Link>
+        {/* <Link href="/">Main</Link> */}
         <Ranking />
       </QueryClientProvider>
     </>
