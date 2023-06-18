@@ -41,17 +41,6 @@ export const Main: React.FC = () => {
         />
       </div>
       <div className="flex justify-center mt-5">Lv.1</div>
-
-      <div>
-        {token ? (
-          <span></span>
-        ) : (
-          <div>
-            <button onClick={() => login()}>login</button>
-          </div>
-        )}
-        {/* <Link href="/ranking">Ranking</Link> */}
-      </div>
     </>
   )
 }
