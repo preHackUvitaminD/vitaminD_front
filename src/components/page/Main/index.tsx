@@ -36,7 +36,7 @@ export const Main: React.FC = () => {
       >
         WMs784
       </div>
-      <div className="flex justify-center items-center my-10">
+      <div className="flex justify-center items-center mt-32">
         <Image
           style={{ imageRendering: 'pixelated' }}
           src="/chara_ex.gif"
@@ -45,7 +45,7 @@ export const Main: React.FC = () => {
           alt="Avatar"
         />
       </div>
-      <div className="text-2xl flex justify-center mt-5">Lv.1</div>
+      <div className="text-3xl flex justify-center mt-5">Lv.1</div>
     </div>
   )
 }
