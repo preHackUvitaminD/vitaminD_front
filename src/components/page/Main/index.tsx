@@ -29,18 +29,23 @@ export const Main: React.FC = () => {
   // }, [token])
 
   return (
-    <>
-      <div className="flex justify-center mt-4">UserName:WMs784</div>
-      <div className="flex justify-center items-center mt-5">
+    <div>
+      <div
+        className="text-4xl flex h-24 justify-center my-10 mx-96 py-7 bg-gray-200/30 backdrop-blur-lg
+    rounded-md border border-gray-200/30 shadow-lg"
+      >
+        WMs784
+      </div>
+      <div className="flex justify-center items-center my-10">
         <Image
           style={{ imageRendering: 'pixelated' }}
           src="/chara_ex.gif"
-          width={240}
-          height={240}
+          width={280}
+          height={280}
           alt="Avatar"
         />
       </div>
-      <div className="flex justify-center mt-5">Lv.1</div>
-    </>
+      <div className="text-2xl flex justify-center mt-5">Lv.1</div>
+    </div>
   )
 }
