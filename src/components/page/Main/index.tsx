@@ -50,7 +50,7 @@ export const Main: React.FC = () => {
             <button onClick={() => login()}>login</button>
           </div>
         )}
-        <Link href="/ranking">Ranking</Link>
+        {/* <Link href="/ranking">Ranking</Link> */}
       </div>
     </>
   )
