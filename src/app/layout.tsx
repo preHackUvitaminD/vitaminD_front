@@ -1,6 +1,7 @@
 import './globals.css'
 import { Header } from './header'
 import { Inter } from 'next/font/google'
+import { AuthProvider } from './providers/AuthProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,11 +16,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html>
-      <body className={inter.className}>
-        <Header />
-        {children}
-      </body>
-    </html>
+    <AuthProvider>
+      <html>
+        <body className={inter.className}>
+          <Header />
+          {children}
+        </body>
+      </html>
+    </AuthProvider>
   )
 }
