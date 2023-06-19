@@ -1,22 +1,39 @@
+'use client'
 import Link from 'next/link'
+import { login } from '@/firebase/auth'
+import { useAuthContext } from '@/app/providers/AuthProvider'
 
 export const Header: React.FC = () => {
+  const { userData } = useAuthContext()
+  const token = userData?.idToken
+
   return (
     <header>
       <nav className="bg-green-800 w-full">
-        <div className="flex items-center pl-8 h-14">
-          <div className="flex space-x-4">
-            <div className="text-green-100 px-3 py-2">でめたら</div>
-            <Link href="/">
-              <div className="text-green-100 hover:bg-green-700 px-3 py-2 rounded">
-                マイページ
+        <div className="flex justify-between max-w-6xl mx-auto items-center pl-8 h-14">
+          <div className="flex space-x-50">
+            <div className="text-green-100 px-24 py-2">でめたら</div>
+            <div className="flex ml-auto mr-0">
+              <Link href="/">
+                <div className="text-green-100 hover:bg-green-700 px-3 py-2 rounded ml-auto mr-0">
+                  マイページ
+                </div>
+              </Link>
+              <Link href="/ranking">
+                <div className="text-green-100 hover:bg-green-700 px-3 py-2 rounded ml-auto mr-0">
+                  ランキング
+                </div>
+              </Link>
+              <div className="text-green-100 hover:bg-green-700 px-3 py-2 rounded ml-auto mr-0">
+                {token ? (
+                  <span></span>
+                ) : (
+                  <div>
+                    <button onClick={() => login()}>ログイン</button>
+                  </div>
+                )}
               </div>
-            </Link>
-            <Link href="/ranking">
-              <div className="text-green-100 hover:bg-green-700 px-3 py-2 rounded">
-                ランキング
-              </div>
-            </Link>
+            </div>
           </div>
         </div>
       </nav>
