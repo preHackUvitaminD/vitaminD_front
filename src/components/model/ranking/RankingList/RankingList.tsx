@@ -12,10 +12,10 @@ export const RankingList: React.FC<RankingListProps> = ({
   return (
     <div className="flex items-center justify-center">
       <div
-        className="h-96 w-80 bg-gray-200/30 backdrop-blur-lg
-    rounded-md border border-gray-200/30 shadow-lg"
+        className="h-auto w-96 bg-gray-200/30 backdrop-blur-lg
+    rounded-md border border-gray-200/30 shadow-lg my-10 py-10"
       >
-        <div className="flex justify-center mt-4">{groupName}</div>
+        <div className="flex justify-center mt-4 text-3xl">{groupName}</div>
         <div className="flex justify-center mt-5">
           <table className="table-auto">
             <thead>
@@ -30,7 +30,7 @@ export const RankingList: React.FC<RankingListProps> = ({
                 <tr key={user.userName}>
                   <>
                     <td className="border px-4 py-2">{user.rank}位</td>
-                    <td className="border px-4 py-2">LV.{user.lv}</td>
+                    <td className="border px-4 py-2">Lv.{user.lv}</td>
                     <td className="border px-4 py-2">{user.userName}</td>
                   </>
                 </tr>
