@@ -1,12 +1,14 @@
 import { useEffect } from 'react'
 import Image from 'next/image'
 import { useAuthContext } from '@/app/providers/AuthProvider'
+import { useUserDataContext } from '@/app/providers/UserDataProvider'
 
 const OWNER = '<OWNER>'
 const REPO = '<REPO>'
 
 export const Main: React.FC = () => {
   const { authData } = useAuthContext()
+  const { userData } = useUserDataContext()
   const token = authData?.idToken
   // const token = userData?.accessToken
 
@@ -32,7 +34,7 @@ export const Main: React.FC = () => {
         className="text-4xl flex h-24 justify-center my-10 mx-96 py-7 bg-gray-200/30 backdrop-blur-lg
     rounded-md border border-gray-200/30 shadow-lg"
       >
-        WMs784
+        {userData?.userName}
       </div>
       <div className="flex justify-center items-center mt-32">
         <Image
