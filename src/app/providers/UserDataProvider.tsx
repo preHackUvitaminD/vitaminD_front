@@ -1,6 +1,6 @@
 'use client'
 
-import React, { createContext, useState, useContext } from 'react'
+import React, { createContext, useState, useContext, useEffect } from 'react'
 import { UserData } from '@/models/UserData'
 
 interface UserContextProps {
@@ -13,13 +13,19 @@ const UserDataContext = createContext<UserContextProps>({ userData: undefined })
 
 // デモ用のゴミ実装なので早急に何とかする
 export const UserDataProvider: React.FC<UserContextProps> = ({ children }) => {
-  const _userName = localStorage.getItem('userName') as string
-  const _groupName = localStorage.getItem('groupName')!
-  const [userData, setUserData] = useState<UserData | undefined>(
-    _userName
-      ? { userName: _userName, groupName: _groupName ?? undefined }
-      : undefined
-  )
+  const [userData, setUserData] = useState<UserData | undefined>(undefined)
+
+  useEffect(() => {
+    const _userName = localStorage.getItem('userName') as string
+    const _groupName = localStorage.getItem('groupName')!
+    console.log({ _userName })
+
+    setUserData(
+      _userName
+        ? { userName: _userName, groupName: _groupName ?? undefined }
+        : undefined
+    )
+  }, [])
 
   return (
     <UserDataContext.Provider
