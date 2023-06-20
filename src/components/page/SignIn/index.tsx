@@ -2,7 +2,6 @@ import { useAuthContext } from '@/app/providers/AuthProvider'
 import { useUserDataContext } from '@/app/providers/UserDataProvider'
 import { login } from '@/firebase/auth'
 import { redirect } from 'next/navigation'
-import { useEffect } from 'react'
 
 export const SignIn: React.FC = () => {
   const { authData } = useAuthContext()

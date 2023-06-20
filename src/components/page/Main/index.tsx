@@ -1,8 +1,6 @@
 import { useEffect } from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
 import { useAuthContext } from '@/app/providers/AuthProvider'
-import { login } from '@/firebase/auth'
 
 const OWNER = '<OWNER>'
 const REPO = '<REPO>'
