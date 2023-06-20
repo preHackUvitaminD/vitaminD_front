@@ -4,12 +4,15 @@ import '../firebase/firebaseApp'
 
 import { Main } from '@/components/page/Main'
 import { AuthProvider } from './providers/AuthProvider'
+import { AuthGuard } from '@/components/functional/AuthGuard'
 
 export default function Home() {
   return (
-    // <AuthProvider>
-    <Main />
-    // </AuthProvider>
+    <AuthProvider>
+      <AuthGuard>
+        <Main />
+      </AuthGuard>
+    </AuthProvider>
   )
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">

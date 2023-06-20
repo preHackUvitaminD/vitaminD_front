@@ -8,8 +8,8 @@ const OWNER = '<OWNER>'
 const REPO = '<REPO>'
 
 export const Main: React.FC = () => {
-  const { userData } = useAuthContext()
-  const token = userData?.idToken
+  const { authData } = useAuthContext()
+  const token = authData?.idToken
   // const token = userData?.accessToken
 
   // // アクセストークンを使用してGitHub API（GET /Issues）へリクエストする

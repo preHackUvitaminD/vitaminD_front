@@ -3,16 +3,22 @@
 import Link from 'next/link'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Ranking } from '@/components/page/Ranking'
+import { AuthGuard } from '@/components/functional/AuthGuard'
+import { AuthProvider } from '../providers/AuthProvider'
 
 const queryClient = new QueryClient()
 
 const Page: React.FC = () => {
   return (
     <>
-      <QueryClientProvider client={queryClient}>
-        {/* <Link href="/">Main</Link> */}
-        <Ranking />
-      </QueryClientProvider>
+      <AuthProvider>
+        <AuthGuard>
+          <QueryClientProvider client={queryClient}>
+            {/* <Link href="/">Main</Link> */}
+            <Ranking />
+          </QueryClientProvider>
+        </AuthGuard>
+      </AuthProvider>
     </>
   )
 }
