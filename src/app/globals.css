@@ -24,7 +24,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-  background-image: url('../../public/test_4.png');
+  background-image: url('../../public/background.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100%;
