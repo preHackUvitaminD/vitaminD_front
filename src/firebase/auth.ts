@@ -17,7 +17,9 @@ import { AuthData } from '@/models/AuthData'
 const provider = new GithubAuthProvider()
 provider.addScope('repo')
 
-let authData: AuthData | undefined | null = undefined
+let authData: AuthData | undefined | null = {
+  idToken: undefined,
+}
 
 export const login = async (): Promise<void> => {
   const auth = getAuth(firebaseApp)
@@ -27,9 +29,12 @@ export const login = async (): Promise<void> => {
   const credential = GithubAuthProvider.credentialFromResult(result)
   const info = getAdditionalUserInfo(result)
 
+  console.log(info?.username)
+
   // 応急処置
   // localStorage.setItem('accessToken', credential?.accessToken!)
-  // localStorage.setItem('userName', info?.username!)
+  localStorage.setItem('userName', info?.username!)
+  window && window.dispatchEvent(new Event('storage'))
 }
 
 export function logout(): Promise<void> {

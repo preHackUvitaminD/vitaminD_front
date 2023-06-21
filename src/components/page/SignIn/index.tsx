@@ -1,11 +1,12 @@
 import { useAuthContext } from '@/app/providers/AuthProvider'
 import { useUserDataContext } from '@/app/providers/UserDataProvider'
+import { SignInWithGitHub } from '@/components/model/social/SignInWithGitHub/SignInWithGitHub'
 import { login } from '@/firebase/auth'
 import { redirect } from 'next/navigation'
 
 export const SignIn: React.FC = () => {
   const { authData } = useAuthContext()
-  const { userData, setUserData } = useUserDataContext()
+  const { userData } = useUserDataContext()
 
   console.log({ authData, userData })
 
@@ -14,32 +15,19 @@ export const SignIn: React.FC = () => {
 
   console.log({ isLogedIn, isRegistered })
 
-  if (!isLogedIn) {
-    return (
-      <>
-        <div onClick={() => login()}>Login with GitHub</div>
-        <div>Waiting for user login...</div>
-      </>
-    )
-  }
+  if (isLogedIn && isRegistered) return redirect('/')
+  if (isLogedIn && !isRegistered) return redirect('/register')
 
-  if (!isRegistered)
-    return (
-      <>
-        <form
-          onSubmit={(e) => {
-            // 応急処置
-            e.preventDefault()
-            setUserData?.({ userName: 'WMs784', groupName: 'vitaminD' })
-          }}
-        >
-          <div>加入するグループ名を入力してください</div>
-          <input type="text" />
-          <input type="submit" value="Register" />
-        </form>
-      </>
-    )
-
-  redirect('/')
-  return <div>Login successfull</div>
+  return (
+    <>
+      <div className="flex mt-10">
+        <div className="flex-1"></div>
+        <div className="w-2/3 bg-gray-200/30 backdrop-blur-lg rounded-md border border-gray-200/30 shadow-lg px-32 py-16 text-center">
+          <div className="text-3xl py-5">登録・ログイン</div>
+          <SignInWithGitHub onClick={login} />
+        </div>
+        <div className="flex-1"></div>
+      </div>
+    </>
+  )
 }

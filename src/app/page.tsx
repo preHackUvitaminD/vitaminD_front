@@ -4,11 +4,14 @@ import '../firebase/firebaseApp'
 
 import { Main } from '@/components/page/Main'
 import { AuthGuard } from '@/components/functional/AuthGuard'
+import { UserDataGuard } from '@/components/functional/UserDataGuard'
 
 export default function Home() {
   return (
     <AuthGuard>
-      <Main />
+      <UserDataGuard>
+        <Main />
+      </UserDataGuard>
     </AuthGuard>
   )
   return (
