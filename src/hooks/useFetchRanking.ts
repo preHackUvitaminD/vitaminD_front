@@ -21,7 +21,12 @@ export interface FetchRankingProps {
 export const fetchRanking = ({
   groupName,
 }: FetchRankingProps): Promise<RankingGroupNameGet201Response> => {
-  return api.rankingGroupNameGet({ groupName })
+  return api.rankingGroupNameGet(
+    { groupName },
+    {
+      cache: 'no-store',
+    }
+  )
 }
 
 export const useFetchRanking = ({ groupName }: FetchRankingProps) => {
