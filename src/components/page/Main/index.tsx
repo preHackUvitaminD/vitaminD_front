@@ -1,8 +1,7 @@
 import { useEffect } from 'react'
 import Image from 'next/image'
-import { useAuthContext } from '@/app/providers/AuthProvider'
-import { useUserDataContext } from '@/app/providers/UserDataProvider'
-import { Character } from '@/components/model/character/character'
+import { useAuthContext } from '@/providers/AuthProvider'
+import { useUserDataContext } from '@/providers/UserDataProvider'
 
 const OWNER = '<OWNER>'
 const REPO = '<REPO>'
