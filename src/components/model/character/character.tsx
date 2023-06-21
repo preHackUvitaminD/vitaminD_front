@@ -1,6 +1,7 @@
 import { useFetchRanking } from '@/hooks/useFetchRanking'
 import Image from 'next/image'
 import { Suspense } from 'react'
+import { useQuery } from '@chakra-ui/react'
 
 export interface RankingListProps {
   groupName: string
