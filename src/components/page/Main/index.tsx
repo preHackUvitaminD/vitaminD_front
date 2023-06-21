@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import Image from 'next/image'
 import { useAuthContext } from '@/app/providers/AuthProvider'
 import { useUserDataContext } from '@/app/providers/UserDataProvider'
+import { Character } from '@/components/model/character/character'
 
 const OWNER = '<OWNER>'
 const REPO = '<REPO>'
@@ -10,6 +11,7 @@ export const Main: React.FC = () => {
   const { authData } = useAuthContext()
   const { userData } = useUserDataContext()
   const token = authData?.idToken
+  const groupName = localStorage.getItem('groupName')
   // const token = userData?.accessToken
 
   // // アクセストークンを使用してGitHub API（GET /Issues）へリクエストする
@@ -44,6 +46,7 @@ export const Main: React.FC = () => {
           height={280}
           alt="Avatar"
         />
+        <Character groupName="vitaminD" />
       </div>
       <div className="text-3xl flex justify-center mt-5">Lv.1</div>
     </div>

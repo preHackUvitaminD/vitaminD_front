@@ -1,5 +1,6 @@
 import { useFetchRanking } from '@/hooks/useFetchRanking'
 import Image from 'next/image'
+import { Suspense } from 'react'
 
 export interface RankingListProps {
   groupName: string
@@ -10,11 +11,13 @@ export const Character: React.FC<RankingListProps> = ({
 }: RankingListProps) => {
   const { data } = useFetchRanking({ groupName })
   const userName = localStorage.getItem('userName')
-  const lv = data?.ranking?.map.get(userName)?.lv
+  const lv = data?.ranking?.find((user) => user.userName === userName)?.lv
 
   return (
-    <div className="flex justify-center mt-5">
-      <Image src="/character_${lv}" width={200} height={200} alt={''} />
-    </div>
+    <Suspense fallback={<div>Now Loading...</div>}>
+      <div className="flex justify-center mt-5">
+        <Image src={`/lv${lv}`} width={200} height={200} alt={''} />
+      </div>
+    </Suspense>
   )
 }
