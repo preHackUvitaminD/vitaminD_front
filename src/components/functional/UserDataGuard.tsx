@@ -1,4 +1,4 @@
-import { useUserDataContext } from '@/app/providers/UserDataProvider'
+import { useUserDataContext } from '@/providers/UserDataProvider'
 import { redirect } from 'next/navigation'
 import { ReactNode } from 'react'
 
