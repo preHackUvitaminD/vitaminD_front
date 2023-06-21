@@ -17,10 +17,15 @@ export const register = ({
   userName,
   groupName,
 }: RegisterProps): Promise<void> => {
-  return api.registerPost({
-    registerPostRequest: {
-      userName,
-      groupName,
+  return api.registerPost(
+    {
+      registerPostRequest: {
+        userName,
+        groupName,
+      },
     },
-  })
+    {
+      cache: 'no-store',
+    }
+  )
 }
