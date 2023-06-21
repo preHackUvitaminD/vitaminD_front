@@ -1,29 +1,31 @@
 'use client'
 import React, { createContext, useEffect, useState, useContext } from 'react'
-import { UserData } from '@/models/UserData'
+import { AuthData } from '@/models/AuthData'
 import { onAuthStateChanged } from '@/firebase/auth'
 
 interface AuthContextProps {
   children?: React.ReactNode
-  userData?: UserData
+  authData?: AuthData | undefined | null
 }
 
-const AuthContext = createContext<AuthContextProps>({ userData: undefined })
+const AuthContext = createContext<AuthContextProps>({ authData: undefined })
 
 export const AuthProvider: React.FC<AuthContextProps> = ({ children }) => {
-  const [userData, setUserData] = useState<UserData | undefined>(undefined)
+  const [authData, setAuthData] = useState<AuthData | undefined | null>(
+    undefined
+  )
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged((userData) => {
-      console.log(userData)
-      setUserData(userData)
+    const unsubscribe = onAuthStateChanged((authData) => {
+      console.log(authData)
+      setAuthData(authData)
     })
 
     return unsubscribe
   }, [])
 
   return (
-    <AuthContext.Provider value={{ userData }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ authData }}>{children}</AuthContext.Provider>
   )
 }
 

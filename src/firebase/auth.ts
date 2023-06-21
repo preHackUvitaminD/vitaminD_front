@@ -1,3 +1,5 @@
+'use client'
+
 import {
   getAuth,
   onAuthStateChanged as onFirebaseAuthStateChanged,
@@ -10,12 +12,14 @@ import {
   signInWithCredential,
 } from 'firebase/auth'
 import firebaseApp from '@/firebase/firebaseApp'
-import { UserData } from '@/models/UserData'
+import { AuthData } from '@/models/AuthData'
 
 const provider = new GithubAuthProvider()
 provider.addScope('repo')
 
-let userData: UserData | undefined = undefined
+let authData: AuthData | undefined | null = {
+  idToken: undefined,
+}
 
 export const login = async (): Promise<void> => {
   const auth = getAuth(firebaseApp)
@@ -25,9 +29,12 @@ export const login = async (): Promise<void> => {
   const credential = GithubAuthProvider.credentialFromResult(result)
   const info = getAdditionalUserInfo(result)
 
+  console.log(info?.username)
+
   // 応急処置
-  localStorage.setItem('accessToken', credential?.accessToken!)
+  // localStorage.setItem('accessToken', credential?.accessToken!)
   localStorage.setItem('userName', info?.username!)
+  window && window.dispatchEvent(new Event('storage'))
 }
 
 export function logout(): Promise<void> {
@@ -40,7 +47,7 @@ export function logout(): Promise<void> {
 }
 
 export const onAuthStateChanged = (
-  callback: (userData: UserData | undefined) => void
+  callback: (authData: AuthData | undefined | null) => void
 ) => {
   const auth = getAuth(firebaseApp)
 
@@ -50,7 +57,7 @@ export const onAuthStateChanged = (
     console.log(user)
 
     if (!user) {
-      userData = undefined
+      authData = null
     } else {
       // 行けると思ってたけど再認証時はGitHubのトークンが降ってこない
       const { token } = await user.getIdTokenResult(true)
@@ -71,12 +78,11 @@ export const onAuthStateChanged = (
       //   ).catch(() => undefined)
       //   if (!userName || !accessToken || !isCredentialValid) await login()
 
-      userData = {
-        // userName,
+      authData = {
         // accessToken,
         idToken: token,
       }
     }
-    callback(userData)
+    callback(authData)
   })
 }
