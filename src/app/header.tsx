@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { logout } from '@/firebase/auth'
-import { useAuthContext } from '@/app/providers/AuthProvider'
+import { useAuthContext } from '@/providers/AuthProvider'
 
 export const Header: React.FC = () => {
   const { authData } = useAuthContext()

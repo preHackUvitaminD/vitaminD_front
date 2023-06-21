@@ -1,5 +1,5 @@
-import { useAuthContext } from '@/app/providers/AuthProvider'
-import { useUserDataContext } from '@/app/providers/UserDataProvider'
+import { useAuthContext } from '@/providers/AuthProvider'
+import { useUserDataContext } from '@/providers/UserDataProvider'
 import { SignInWithGitHub } from '@/components/model/social/SignInWithGitHub/SignInWithGitHub'
 import { login } from '@/firebase/auth'
 import { redirect } from 'next/navigation'

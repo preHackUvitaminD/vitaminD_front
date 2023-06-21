@@ -1,4 +1,4 @@
-import { useAuthContext } from '@/app/providers/AuthProvider'
+import { useAuthContext } from '@/providers/AuthProvider'
 import { redirect } from 'next/navigation'
 import { ReactNode } from 'react'
 

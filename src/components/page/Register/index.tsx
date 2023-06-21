@@ -1,6 +1,6 @@
 import { useRef } from 'react'
-import { useAuthContext } from '@/app/providers/AuthProvider'
-import { useUserDataContext } from '@/app/providers/UserDataProvider'
+import { useAuthContext } from '@/providers/AuthProvider'
+import { useUserDataContext } from '@/providers/UserDataProvider'
 import { redirect } from 'next/navigation'
 import { useMutation } from 'react-query'
 import { register, RegisterProps } from '@/api/backend/register'
