@@ -49,7 +49,6 @@ export const Register: React.FC = () => {
 
               mutate({
                 userName: userData?.userName!,
-                groupName: inputRef.current!.value,
               })
             }}
           >
