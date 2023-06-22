@@ -11,7 +11,7 @@ export const Main: React.FC = () => {
   const { authData } = useAuthContext()
   const { userData } = useUserDataContext()
   const token = authData?.idToken
-  const groupName = localStorage.getItem('groupName')
+  const groupName = userData?.groupName
   // const token = userData?.accessToken
 
   // // アクセストークンを使用してGitHub API（GET /Issues）へリクエストする
@@ -39,14 +39,14 @@ export const Main: React.FC = () => {
         {userData?.userName}
       </div>
       <div className="flex justify-center items-center mt-32">
-        <Image
+        {/* <Image
           style={{ imageRendering: 'pixelated' }}
           src="/chara_ex.gif"
           width={280}
           height={280}
           alt="Avatar"
-        />
-        <Character groupName="vitaminD" />
+        /> */}
+        <Character groupName={groupName!} />
       </div>
       <div className="text-3xl flex justify-center mt-5">Lv.1</div>
     </div>
