@@ -30,7 +30,7 @@ export const Register: React.FC = () => {
   console.log(userData)
 
   if (!isLogedIn) redirect('/signin')
-  if (isRegistered) redirect('/')
+  if (isRegistered) redirect('/mypage')
 
   if (isLoading) {
     return <div>Now Loading...</div>

@@ -7,7 +7,7 @@ import { Character } from '@/components/model/character/Character/Character'
 const OWNER = '<OWNER>'
 const REPO = '<REPO>'
 
-export const Main: React.FC = () => {
+export const MyPage: React.FC = () => {
   const { authData } = useAuthContext()
   const { userData } = useUserDataContext()
   const token = authData?.idToken

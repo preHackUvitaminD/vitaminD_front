@@ -13,9 +13,11 @@ export const Header: React.FC = () => {
       <nav className="bg-green-800 w-full">
         <div className="flex justify-between max-w-6xl mx-auto items-center pl-8 h-14">
           <div className="flex space-x-50">
-            <div className="text-green-100 px-24 py-2">でめたら</div>
+            <div className="text-green-100 px-24 py-2">
+              <Link href="/">でめたら</Link>
+            </div>
             <div className="flex ml-auto mr-0">
-              <Link href="/">
+              <Link href="/mypage">
                 <div className="text-green-100 hover:bg-green-700 px-3 py-2 rounded ml-auto mr-0">
                   マイページ
                 </div>
