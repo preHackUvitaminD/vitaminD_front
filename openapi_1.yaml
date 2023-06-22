@@ -112,12 +112,20 @@ paths:
                           description: "ユーザーのレベル"
               example:
                 ranking:
-                  - userName: yuki-shimojo269
+                  - userName: WMs784
                     rank: 1
+                    exp: 90
+                    lv: 9
+                  - userName: kume-negitoro
+                    rank: 2
+                    exp: 70
+                    lv: 7
+                  - userName: yuki-shimojo269
+                    rank: 3
                     exp: 10
                     lv: 1
                   - userName: MK8-31
-                    rank: 2
+                    rank: 4
                     exp: 0
                     lv: 0
                         
