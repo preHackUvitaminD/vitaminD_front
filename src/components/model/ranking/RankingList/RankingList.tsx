@@ -37,7 +37,7 @@ export const RankingList: React.FC<RankingListProps> = ({
                     <td className="border px-4 py-2">{user.rank}位</td>
                     <td className="border px-4 py-2">
                       <Suspense fallback={<div>Now Loading...</div>}>
-                        <RankingCharacter lv={String(user.lv)} />
+                        <RankingCharacter lv={user.lv!} />
                       </Suspense>
                     </td>
                     <td className="border px-4 py-2">{user.userName}</td>
