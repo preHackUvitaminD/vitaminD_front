@@ -8,9 +8,6 @@ import {
 
 const conf = new Configuration({
   basePath: process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT,
-  headers: {
-    'Content-Type': 'application/json',
-  },
 })
 const api = new RankingApi(conf)
 
@@ -24,6 +21,9 @@ export const fetchRanking = ({
   return api.rankingGroupNameGet(
     { groupName },
     {
+      headers: {
+        'Content-Type': 'application/json',
+      },
       cache: 'no-store',
     }
   )

@@ -2,9 +2,6 @@ import { Configuration, UsersApi } from '../generated/'
 
 const conf = new Configuration({
   basePath: process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT,
-  headers: {
-    'Content-Type': 'application/json',
-  },
 })
 const api = new UsersApi(conf)
 
@@ -26,6 +23,7 @@ export const register = ({
     },
     {
       headers: {
+        'Content-Type': 'application/json',
         'Cache-Control': 'no-cache,no-store,must-revalidate',
       },
       cache: 'no-store',
