@@ -13,11 +13,11 @@ export const Character: React.FC<CharacterProps> = ({
   const lv = data?.ranking?.find((user) => user.userName === userName)?.lv
 
   return (
-    <Suspense fallback={<div>Now Loading...</div>}>
+    <>
       <div className="flex justify-center items-center mt-32">
         <Image src={`/Lv${lv}.gif`} width={280} height={280} alt={''} />
       </div>
       <div className="text-3xl flex justify-center mt-5">Lv.{lv}</div>
-    </Suspense>
+    </>
   )
 }
