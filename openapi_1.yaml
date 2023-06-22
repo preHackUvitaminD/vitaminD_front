@@ -73,13 +73,13 @@ paths:
                     type: string
                     example: "userName not found"
             
-  "/ranking/{groupName}":
+  "/ranking/{userName}":
     get:
       summary: "グループのランキングを返す"
       tags: ["ranking"]
       deprecated: false
       parameters:
-        - name: groupName
+        - name: userName
           in: path
           required: true
           schema: 
