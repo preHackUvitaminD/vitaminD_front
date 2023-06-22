@@ -15,7 +15,6 @@ import firebaseApp from '@/firebase/firebaseApp'
 import { AuthData } from '@/models/AuthData'
 
 const provider = new GithubAuthProvider()
-provider.addScope('repo')
 
 let authData: AuthData | undefined | null = {
   idToken: undefined,
