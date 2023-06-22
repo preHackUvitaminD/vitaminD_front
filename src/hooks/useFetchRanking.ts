@@ -30,5 +30,7 @@ export const fetchRanking = ({
 }
 
 export const useFetchRanking = ({ userName }: FetchRankingProps) => {
-  return useQuery('rankingData', () => fetchRanking({ userName }))
+  return useQuery('rankingData', () => fetchRanking({ userName }), {
+    suspense: true,
+  })
 }

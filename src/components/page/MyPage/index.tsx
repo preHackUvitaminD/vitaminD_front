@@ -14,7 +14,7 @@ export const MyPage: React.FC = () => {
       >
         {userData?.userName}
       </div>
-      <Suspense fallback={<div>Now Loading...</div>}>
+      <Suspense fallback={<div className="text-center">Now Loading...</div>}>
         <Character userName={userName!} />
       </Suspense>
     </div>
