@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { Suspense, useEffect } from 'react'
 import Image from 'next/image'
 import { useAuthContext } from '@/providers/AuthProvider'
 import { useUserDataContext } from '@/providers/UserDataProvider'
@@ -38,7 +38,9 @@ export const Main: React.FC = () => {
       >
         {userData?.userName}
       </div>
-      <Character userName={userName!} />
+      <Suspense fallback={<div>Now Loading...</div>}>
+        <Character userName={userName!} />
+      </Suspense>
     </div>
   )
 }
