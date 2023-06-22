@@ -2,13 +2,13 @@ import { useFetchRanking } from '@/hooks/useFetchRanking'
 import Image from 'next/image'
 import { Suspense } from 'react'
 
-export interface RankingListProps {
+export interface CharactorProps {
   groupName: string
 }
 
-export const Character: React.FC<RankingListProps> = ({
+export const Character: React.FC<CharactorProps> = ({
   groupName,
-}: RankingListProps) => {
+}: CharactorProps) => {
   const { data } = useFetchRanking({ groupName })
   const userName = localStorage.getItem('userName')
   // const lv = data?.ranking?.find((user) => user.userName === userName)?.lv
