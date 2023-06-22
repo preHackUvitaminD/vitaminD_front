@@ -38,17 +38,7 @@ export const Main: React.FC = () => {
       >
         {userData?.userName}
       </div>
-      <div className="flex justify-center items-center mt-32">
-        {/* <Image
-          style={{ imageRendering: 'pixelated' }}
-          src="/chara_ex.gif"
-          width={280}
-          height={280}
-          alt="Avatar"
-        /> */}
-        <Character groupName={groupName!} />
-      </div>
-      <div className="text-3xl flex justify-center mt-5">Lv.1</div>
+      <Character groupName={groupName!} />
     </div>
   )
 }
