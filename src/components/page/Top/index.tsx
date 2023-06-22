@@ -24,7 +24,11 @@ export const Top: React.FC = () => {
           <h2 className="text-center text-2xl font-bold py-10">
             でめたらとは？
           </h2>
-          <section></section>
+          <section>
+            「でめたら」はGitHubの開発実績を経験値に変換し、アバターのレベルアップや外見変化を楽しめる育成ゲームです。
+            <br />
+            チーム内でレベルを競うこともでき、学生やエンジニアの開発モチベーションを支えます。
+          </section>
 
           <h2 className="text-center text-2xl font-bold py-10">冒険のヒント</h2>
           <h3 className="text-xl font-bold py-5">
