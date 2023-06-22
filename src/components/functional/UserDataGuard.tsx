@@ -1,3 +1,4 @@
+import { logout } from '@/firebase/auth'
 import { useUserDataContext } from '@/providers/UserDataProvider'
 import { redirect } from 'next/navigation'
 import { ReactNode } from 'react'
@@ -11,7 +12,14 @@ export const UserDataGuard: React.FC<UserDataGuardProps> = ({
 }: UserDataGuardProps) => {
   const { userData } = useUserDataContext()
 
-  if (!userData || userData?.groupName === undefined) return redirect('/signin')
+  if (userData === undefined) {
+    return <div>Now Loading...</div>
+  }
+
+  if (userData === null || userData?.groupName === undefined) {
+    logout()
+    return redirect('/signin')
+  }
 
   return <>{children}</>
 }
