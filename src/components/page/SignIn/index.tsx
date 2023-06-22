@@ -15,7 +15,7 @@ export const SignIn: React.FC = () => {
 
   console.log({ isLogedIn, isRegistered })
 
-  if (isLogedIn && isRegistered) return redirect('/')
+  if (isLogedIn && isRegistered) return redirect('/mypage')
   if (isLogedIn && !isRegistered) return redirect('/register')
 
   return (
