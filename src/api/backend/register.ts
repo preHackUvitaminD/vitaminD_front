@@ -1,7 +1,7 @@
 import { Configuration, UsersApi } from '../generated/'
 
 const conf = new Configuration({
-  basePath: process.env.BACKEND_API_ENDPOINT,
+  basePath: process.env.NEXT_PUBLIC_BACKEND_API_ENDPOINT,
   headers: {
     'Content-Type': 'application/json',
   },
