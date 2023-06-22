@@ -9,7 +9,7 @@ export const Top: React.FC = () => {
 
   return (
     <>
-      <div className="flex mt-10">
+      <div className="flex my-10">
         <div className="flex-1"></div>
         <div className="w-2/3 bg-gray-200/30 backdrop-blur-lg rounded-md border border-gray-200/30 shadow-lg px-32 py-16">
           <h1 className="text-center text-3xl font-bold py-5">
