@@ -16,9 +16,9 @@ export const Character: React.FC<CharacterProps> = ({
   return (
     <Suspense fallback={<div>Now Loading...</div>}>
       <div className="flex justify-center items-center mt-32">
-        <Image src={`/Lv${lv}.gif`} width={280} height={280} alt={''} />
+        <Image src={`/Lv${lv_m}.gif`} width={280} height={280} alt={''} />
       </div>
-      <div className="text-3xl flex justify-center mt-5">Lv.{lv_m}</div>
+      <div className="text-3xl flex justify-center mt-5">Lv.{lv}</div>
     </Suspense>
   )
 }
