@@ -11,7 +11,7 @@ export const Main: React.FC = () => {
   const { authData } = useAuthContext()
   const { userData } = useUserDataContext()
   const token = authData?.idToken
-  const groupName = userData?.groupName
+  const userName = userData?.userName
   // const token = userData?.accessToken
 
   // // アクセストークンを使用してGitHub API（GET /Issues）へリクエストする
@@ -38,7 +38,7 @@ export const Main: React.FC = () => {
       >
         {userData?.userName}
       </div>
-      <Character groupName={groupName!} />
+      <Character userName={userName!} />
     </div>
   )
 }

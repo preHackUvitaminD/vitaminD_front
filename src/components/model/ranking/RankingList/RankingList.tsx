@@ -2,12 +2,14 @@ import { useFetchRanking } from '@/hooks/useFetchRanking'
 
 export interface RankingListProps {
   groupName: string
+  userName: string
 }
 
 export const RankingList: React.FC<RankingListProps> = ({
   groupName,
+  userName,
 }: RankingListProps) => {
-  const { data } = useFetchRanking({ groupName })
+  const { data } = useFetchRanking({ userName })
 
   return (
     <div className="flex items-center justify-center">
