@@ -2,17 +2,22 @@
 import Image from 'next/image'
 import '../firebase/firebaseApp'
 
+import { QueryClient, QueryClientProvider } from 'react-query'
 import { Main } from '@/components/page/Main'
 import { AuthGuard } from '@/components/functional/AuthGuard'
 import { UserDataGuard } from '@/components/functional/UserDataGuard'
 
+const queryClient = new QueryClient()
+
 export default function Home() {
   return (
-    <AuthGuard>
-      <UserDataGuard>
-        <Main />
-      </UserDataGuard>
-    </AuthGuard>
+    <QueryClientProvider client={queryClient}>
+      <AuthGuard>
+        <UserDataGuard>
+          <Main />
+        </UserDataGuard>
+      </AuthGuard>
+    </QueryClientProvider>
   )
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
