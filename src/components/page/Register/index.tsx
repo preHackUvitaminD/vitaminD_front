@@ -17,6 +17,9 @@ export const Register: React.FC = () => {
         console.log(data)
         setUserData?.(userData)
       },
+      onError: (error) => {
+        console.error(error)
+      },
     }
   )
 

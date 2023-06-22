@@ -3,7 +3,7 @@ import {
   UsersApi,
   RankingApi,
   Configuration,
-  RankingGroupNameGet201Response,
+  RankingUserNameGet201Response,
 } from '../api/generated'
 
 const conf = new Configuration({
@@ -15,20 +15,20 @@ const conf = new Configuration({
 const api = new RankingApi(conf)
 
 export interface FetchRankingProps {
-  groupName: string
+  userName: string
 }
 
 export const fetchRanking = ({
-  groupName,
-}: FetchRankingProps): Promise<RankingGroupNameGet201Response> => {
-  return api.rankingGroupNameGet(
-    { groupName },
+  userName,
+}: FetchRankingProps): Promise<RankingUserNameGet201Response> => {
+  return api.rankingUserNameGet(
+    { userName },
     {
       cache: 'no-store',
     }
   )
 }
 
-export const useFetchRanking = ({ groupName }: FetchRankingProps) => {
-  return useQuery('rankingData', () => fetchRanking({ groupName }))
+export const useFetchRanking = ({ userName }: FetchRankingProps) => {
+  return useQuery('rankingData', () => fetchRanking({ userName }))
 }
