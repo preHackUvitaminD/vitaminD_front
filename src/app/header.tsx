@@ -18,7 +18,7 @@ export const Header: React.FC = () => {
         </div>
         <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
           <div className="text-sm lg:flex-grow">
-            <div className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+            <div className="block mt-4 lg:inline-block lg:mt-0 mr-4">
               {isLoggedIn && (
                 <Link href="/mypage">
                   <div className="text-green-100 hover:bg-green-700 px-3 py-2 rounded ml-auto mr-0">
@@ -27,7 +27,7 @@ export const Header: React.FC = () => {
                 </Link>
               )}
             </div>
-            <div className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+            <div className="block mt-4 lg:inline-block lg:mt-0 mr-4">
               {isLoggedIn && (
                 <Link href="/ranking">
                   <div className="text-green-100 hover:bg-green-700 px-3 py-2 rounded ml-auto mr-0">
@@ -38,7 +38,7 @@ export const Header: React.FC = () => {
             </div>
           </div>
           <div>
-            <div className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:text-teal-500  mt-4 lg:mt-0">
+            <div className="inline-block text-sm px-4 py-2 leading-none border rounded border-white mt-4 lg:mt-0">
               {isLoggedIn ? (
                 <button
                   onClick={() => logout()}
