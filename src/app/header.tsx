@@ -6,7 +6,7 @@ import { useAuthContext } from '@/providers/AuthProvider'
 
 export const Header: React.FC = () => {
   const { authData } = useAuthContext()
-  const token = authData?.idToken
+  const isLoggedIn = Boolean(authData?.idToken)
 
   return (
     <header>
@@ -17,23 +17,33 @@ export const Header: React.FC = () => {
               <Link href="/">でめたら</Link>
             </div>
             <div className="flex ml-auto mr-0">
-              <Link href="/mypage">
-                <div className="text-green-100 hover:bg-green-700 px-3 py-2 rounded ml-auto mr-0">
-                  マイページ
-                </div>
-              </Link>
-              <Link href="/ranking">
-                <div className="text-green-100 hover:bg-green-700 px-3 py-2 rounded ml-auto mr-0">
-                  ランキング
-                </div>
-              </Link>
-              {token && (
+              {isLoggedIn && (
+                <Link href="/mypage">
+                  <div className="text-green-100 hover:bg-green-700 px-3 py-2 rounded ml-auto mr-0">
+                    マイページ
+                  </div>
+                </Link>
+              )}
+              {isLoggedIn && (
+                <Link href="/ranking">
+                  <div className="text-green-100 hover:bg-green-700 px-3 py-2 rounded ml-auto mr-0">
+                    ランキング
+                  </div>
+                </Link>
+              )}
+              {isLoggedIn ? (
                 <button
                   onClick={() => logout()}
                   className="text-green-100 hover:bg-green-700 px-3 py-2 rounded ml-auto mr-0"
                 >
                   ログアウト
                 </button>
+              ) : (
+                <Link href="/signin">
+                  <div className="text-green-100 hover:bg-green-700 px-3 py-2 rounded ml-auto mr-0">
+                    ログイン
+                  </div>
+                </Link>
               )}
             </div>
           </div>
