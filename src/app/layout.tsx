@@ -17,7 +17,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html>
+    <html lang="ja">
+      <head>
+        <meta name="viewport" content="width=1080" />
+      </head>
       <body className={inter.className}>
         <AuthProvider>
           <UserDataProvider>
