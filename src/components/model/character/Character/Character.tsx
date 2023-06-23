@@ -1,7 +1,5 @@
 import { useFetchRanking } from '@/hooks/useFetchRanking'
 import Image from 'next/image'
-import { Suspense } from 'react'
-import NextNProgress from 'nextjs-progressbar'
 import { ProgressBar } from '@/components/model/character/ExpProgress/ProgressBar'
 
 export interface CharacterProps {
