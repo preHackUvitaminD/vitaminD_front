@@ -10,13 +10,15 @@ export const Header: React.FC = () => {
 
   return (
     <header>
-      <nav className="bg-green-800 w-full">
-        <div className="flex justify-between max-w-6xl mx-auto items-center pl-8 h-14">
-          <div className="flex space-x-50">
-            <div className="text-green-100 px-24 py-2">
-              <Link href="/">でめたら</Link>
-            </div>
-            <div className="flex ml-auto mr-0">
+      <nav className="flex items-center justify-between flex-wrap p-3 bg-green-800">
+        <div className="flex items-center flex-shrink-0 text-white mx-6">
+          <span className="font-semibold text-xl tracking-tight">
+            <Link href="/">でめたら</Link>
+          </span>
+        </div>
+        <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+          <div className="text-sm lg:flex-grow">
+            <div className="block mt-4 lg:inline-block lg:mt-0 mr-4">
               {isLoggedIn && (
                 <Link href="/mypage">
                   <div className="text-green-100 hover:bg-green-700 px-3 py-2 rounded ml-auto mr-0">
@@ -24,6 +26,8 @@ export const Header: React.FC = () => {
                   </div>
                 </Link>
               )}
+            </div>
+            <div className="block mt-4 lg:inline-block lg:mt-0 mr-4">
               {isLoggedIn && (
                 <Link href="/ranking">
                   <div className="text-green-100 hover:bg-green-700 px-3 py-2 rounded ml-auto mr-0">
@@ -31,6 +35,10 @@ export const Header: React.FC = () => {
                   </div>
                 </Link>
               )}
+            </div>
+          </div>
+          <div>
+            <div className="inline-block text-sm px-4 py-2 leading-none border rounded border-white mt-4 lg:mt-0">
               {isLoggedIn ? (
                 <button
                   onClick={() => logout()}
