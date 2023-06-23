@@ -26,12 +26,12 @@ export const Character: React.FC<CharacterProps> = ({
       <div className="text-3xl flex justify-center mt-10">Lv.{lv}</div>
       <div className="flex justify-center mt-6">
         <ProgressBar
-          percentWidth={Math.floor(percentage / 20)}
+          percentWidth={percentage}
           percent={`${percentage / 10}/10`}
         />
       </div>
       <div className="text-xl flex justify-center mt-6">
-        LvUPまであと{(100 - percentage) / 10}
+        LvUPまであと{(100 - percentage) / 10}contributions
       </div>
     </>
   )
