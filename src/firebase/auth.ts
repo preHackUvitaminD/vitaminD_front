@@ -53,7 +53,7 @@ export const onAuthStateChanged = (
   return onFirebaseAuthStateChanged(auth, async (user) => {
     // const auth = getAuth(firebaseApp)
 
-    console.log(user)
+    // console.log(user)
 
     if (!user) {
       authData = null

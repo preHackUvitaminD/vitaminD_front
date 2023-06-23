@@ -17,7 +17,7 @@ export const AuthProvider: React.FC<AuthContextProps> = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged((authData) => {
-      console.log(authData)
+      // console.log(authData)
       setAuthData(authData)
     })
 

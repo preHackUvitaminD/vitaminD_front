@@ -8,7 +8,7 @@ export const SignIn: React.FC = () => {
   const { authData } = useAuthContext()
   const { userData } = useUserDataContext()
 
-  console.log({ authData, userData })
+  // console.log({ authData, userData })
 
   const isLogedIn = Boolean(authData?.idToken)
   const isRegistered = Boolean(userData?.groupName)
