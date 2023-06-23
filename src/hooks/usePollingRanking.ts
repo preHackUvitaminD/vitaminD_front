@@ -23,7 +23,7 @@ export const usePollingRanking = ({
   const [isUserStatusUpdated, setIsUserStatusUpdated] = useState(false)
 
   useEffect(() => {
-    const timer = setInterval(async () => {
+    const callback = async () => {
       const nextRanking = await fetchRanking({ userName })
 
       if (JSON.stringify(ranking) !== JSON.stringify(nextRanking)) {
@@ -46,7 +46,9 @@ export const usePollingRanking = ({
       } else {
         setIsUserStatusUpdated(false)
       }
-    }, interval)
+    }
+    callback()
+    const timer = setInterval(callback, interval)
 
     return () => clearInterval(timer)
   }, [interval, ranking, userName, onRankingUpdated, onUserStatusUpdated])

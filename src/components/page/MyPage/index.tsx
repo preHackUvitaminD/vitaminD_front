@@ -10,7 +10,7 @@ export const MyPage: React.FC = () => {
   const userName = userData?.userName
 
   const { ranking } = usePollingRanking({
-    interval: 30 * 1000,
+    interval: 60 * 1000,
     userName: userName!,
     initRanking: { ranking: [] },
   })
