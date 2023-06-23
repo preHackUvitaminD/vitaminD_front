@@ -29,6 +29,7 @@ export const Character: React.FC<CharacterProps> = ({
         <div className="flex justify-center">
           <ProgressBar
             percentWidth={percentage}
+            flag={true}
             percent={`${percentage / 10}/10`}
           />
         </div>
