@@ -16,7 +16,7 @@ export const MyPage: React.FC = () => {
   })
 
   const status = ranking.ranking?.find((user) => user.userName === userName)
-  const isLevelUpped = status?.lv! > 0 && status?.exp === 0
+  const isLevelUpped = status?.lv! > 0 && `${status?.exp}`.slice(-1) === '0'
 
   return (
     <div>
