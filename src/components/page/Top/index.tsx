@@ -1,3 +1,4 @@
+import { LetsStartYourAdventure } from '@/components/model/tutorial/LetsStartYourAdventure/LetsStartYourAdventure'
 import { useUserDataContext } from '@/providers/UserDataProvider'
 import Image from 'next/image'
 
@@ -29,6 +30,10 @@ export const Top: React.FC = () => {
             <br />
             チーム内でレベルを競うこともでき、学生やエンジニアの開発モチベーションを支えます。
           </section>
+
+          <div className="flex justify-center text-center py-14">
+            <LetsStartYourAdventure />
+          </div>
 
           <h2 className="text-center text-2xl font-bold py-10">冒険のヒント</h2>
           <h3 className="text-xl font-bold py-5">
