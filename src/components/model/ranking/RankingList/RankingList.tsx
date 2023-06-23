@@ -1,6 +1,7 @@
 import { useFetchRanking } from '@/hooks/useFetchRanking'
 import { RankingCharacter } from '@/components/model/ranking/RankingChara/RankingChara'
 import { Suspense } from 'react'
+import { ProgressBar } from '../../character/ExpProgress/ProgressBar'
 
 export interface RankingListProps {
   groupName: string
@@ -41,7 +42,18 @@ export const RankingList: React.FC<RankingListProps> = ({
                       </Suspense>
                     </td>
                     <td className="border px-4 py-2">{user.userName}</td>
-                    <td className="border px-4 py-2">Lv.{user.lv}</td>
+                    <td className="border px-4 py-2">
+                      <div className="flex flex-col justify-center">
+                        <div className="flex justify-center">Lv.{user.lv}</div>
+                        <div className="flex w-32 justify-center">
+                          <ProgressBar
+                            percentWidth={user.exp! * 10 - user.lv! * 100}
+                            flag={false}
+                            percent={`${user.exp! * 10 - user.lv! * 100}/10`}
+                          />
+                        </div>
+                      </div>
+                    </td>
                   </>
                 </tr>
               ))}
