@@ -7,7 +7,7 @@ export const Ranking: React.FC = () => {
 
   return (
     <>
-      <Suspense fallback={<div>Now Loading...</div>}>
+      <Suspense fallback={<div className="text-center">Now Loading...</div>}>
         <RankingList
           groupName={userData?.groupName!}
           userName={userData?.userName!}

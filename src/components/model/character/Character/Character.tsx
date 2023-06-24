@@ -1,6 +1,7 @@
 import { useFetchRanking } from '@/hooks/useFetchRanking'
 import Image from 'next/image'
 import { ProgressBar } from '@/components/model/character/ExpProgress/ProgressBar'
+import Link from 'next/link'
 
 export interface CharacterProps {
   userName: string
@@ -40,6 +41,11 @@ export const Character: React.FC<CharacterProps> = ({
           </span>
           コントリビュート
         </div>
+        <Link href="/#guide">
+          <div className="flex justify-center mt-2 underline">
+            プライベートなコントリビュートを反映するには？
+          </div>
+        </Link>
       </div>
     </>
   )
