@@ -36,10 +36,10 @@ export const Top: React.FC = () => {
           </div>
 
           <h2 className="text-center text-2xl font-bold py-10">冒険のヒント</h2>
-          <h3 className="text-xl font-bold py-5">
+          <h3 className="text-xl font-bold py-5" id="guide">
             プライベートなコントリビュートを反映するには
           </h3>
-          <section>
+          <section className="guide">
             プライベートリポジトリのコントリビューションを経験値に反映するには、
             <a
               className="text-blue-800 visited:text-purple-800"
